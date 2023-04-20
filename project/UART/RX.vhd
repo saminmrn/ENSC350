@@ -18,7 +18,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity RX is 
 	-- Constants
 	generic(
-		baud_rate	: integer := 41667						   -- Baud Rate = 50 MHz / 9600 Baud Rate
+		baud_rate	: integer := 5208						   -- Baud Rate = 50 MHz / 9600 Baud Rate
 	);
 	-- Ports
 	port(
@@ -38,7 +38,7 @@ architecture behaviour of RX is
 	signal current_state: state_type := idle_state; 
 	-- Definition: FSM Signal
 	signal temp_data: std_logic_vector(8  downto 0):= (others=>'0');	-- Temporary 9-bit Databus 				  [Initialized to 0]
-	signal baud_count : integer range 0 to 41666 :=0;						-- Baud Rate = 50 MHz / 9600 Baud Rate   [Initialized to 0]
+	signal baud_count : integer range 0 to baud_rate -1 :=0;						-- Baud Rate = 50 MHz / 9600 Baud Rate   [Initialized to 0]
 	signal index: integer range 0 to 8 :=0; 									-- Count for Receiving bits Serially  	  [Initialized to 0]
 	signal parity_count:unsigned (3 downto 0) :="0000";					-- Parity Checking Opertation Vector
 
