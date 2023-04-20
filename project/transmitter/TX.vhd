@@ -17,7 +17,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity TX is 
 	-- Constants
 	generic(
-		baud_rate	: integer := 41667					   -- Baud Rate = 50 MHz / 9600 Baud Rate
+		baud_rate	: integer := 5208					   -- Baud Rate = 50 MHz / 9600 Baud Rate
 		);
 	-- Ports
 	port(
